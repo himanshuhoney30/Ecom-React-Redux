@@ -4,24 +4,38 @@ import { Link } from 'react-router-dom'
 import { getCartTotal } from '../Features/CartSlice';
 
 function NavBar() {
-    const { totalQuantity} = useSelector((state)=>state.allCart)
+    const { totalQuantity } = useSelector((state) => state.allCart)
     const dispatch = useDispatch()
-    useEffect(()=>{
+    useEffect(() => {
         dispatch(getCartTotal())
     },)
     return (
-        <nav class="navbar navbar-expand-lg navbar-light bg-body-tertiary ">
-            <div class="container">
-                <div class="collapse navbar-collapse" id="navbarButtonsExample">
+        <nav class="navbar navbar-expand-lg navbar-primary bg-body-tertiary ">
+            <div className="container-fluid">
+                <button
+                    className="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarButtonsExample"
+                    aria-controls="navbarButtonsExample"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+                >
+                    <span className="navbar-toggler-icon"></span>
+                </button>
+                <div
+                    className="collapse navbar-collapse navbarSupportedContent"
+                    id="navbarButtonsExample"
+                >
                     <Link to="/" class="me-auto">
                         <button class=" btn btn-primary">
                             All Products
                         </button>
                     </Link>
-                    <Link  class="me-auto">
-                    <h1>
-                        E-commerce
-                    </h1>
+                    <Link class="me-auto">
+                        <h1>
+                            E-commerce
+                        </h1>
                     </Link>
                     <Link to="/Cart" class="d-flex align-items-center">
                         <div >
